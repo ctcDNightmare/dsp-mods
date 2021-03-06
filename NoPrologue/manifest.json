@@ -1,0 +1,9 @@
+{
+    "name": "NoPrologue",
+    "version_number": "1.0.0",
+    "website_url": "https://github.com/ctcDNightmare/dsp-mods",
+    "description": "Always start a new game without the prologue.",
+    "dependencies": [
+        "xiaoye97-BepInEx-5.4.5"
+    ]
+}
