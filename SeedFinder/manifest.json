@@ -1,0 +1,9 @@
+{
+    "name": "SeedFinder",
+    "version_number": "0.1.0",
+    "website_url": "https://github.com/ctcDNightmare/dsp-mods",
+    "description": "Want to know if it is worth embarking on a journey before you start it? Let SeedFinder help you with that decision.",
+    "dependencies": [
+        "xiaoye97-BepInEx-5.4.5"
+    ]
+}

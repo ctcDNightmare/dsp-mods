@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoPrologue", "NoPrologue\No
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{69B71E64-94B3-4AE6-886B-1B4E9FB3894F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeedFinder", "SeedFinder\SeedFinder.csproj", "{1FA9015B-6B22-4BD1-B991-4729A0FC7CE2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,6 +19,10 @@ Global
 		{49D8DE2C-748B-4852-B036-234ACE454933}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49D8DE2C-748B-4852-B036-234ACE454933}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{49D8DE2C-748B-4852-B036-234ACE454933}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FA9015B-6B22-4BD1-B991-4729A0FC7CE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FA9015B-6B22-4BD1-B991-4729A0FC7CE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FA9015B-6B22-4BD1-B991-4729A0FC7CE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FA9015B-6B22-4BD1-B991-4729A0FC7CE2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
