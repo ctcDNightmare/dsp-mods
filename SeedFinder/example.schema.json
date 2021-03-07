@@ -1,0 +1,1196 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "http://example.com/example.json",
+    "type": "object",
+    "title": "DSP map schema",
+    "description": "Schema for sharing dyson sphere program maps",
+    "default": {},
+    "examples": [
+        {
+            "title": "retirement",
+            "author": "dnightmare",
+            "tags": [
+                "make-all",
+                "endgame"
+            ],
+            "note": "my new retirement home",
+            "version": "0.6.17.5831",
+            "seed": "83538768",
+            "resource-multiplier": 1,
+            "starcount": 64,
+            "mods": [
+                "ctcDNightmare-NoPrologue-1.0.0",
+                "thisisbrad-CopyInserters-1.6.0"
+            ],
+            "stars": [
+                {
+                    "id": 1,
+                    "name": "Sadira",
+                    "isHome": true,
+                    "luminosity": 0.986,
+                    "type": "g",
+                    "position": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "distance": 0,
+                    "planets": [
+                        {
+                            "name": "Sadira I",
+                            "type": "arid-desert",
+                            "wind": 1.5,
+                            "sun": 1.33,
+                            "singularity": null,
+                            "ocean": null,
+                            "resources": {
+                                "solid": {
+                                    "iron": 1461886,
+                                    "copper": 9494098,
+                                    "silicon": null,
+                                    "titanium": 8372692,
+                                    "stone": 14459879,
+                                    "coal": 124066,
+                                    "fire-ice": null,
+                                    "kimberlite": null,
+                                    "fractal-silicone": null,
+                                    "organic-crystal": null,
+                                    "optical-grating-crystal": null,
+                                    "spiniform-stalagnite": null,
+                                    "unipolar-magnet": null
+                                },
+                                "fluid": {
+                                    "crude-oil": null
+                                },
+                                "gas": {
+                                    "hydrogen": null,
+                                    "deuterium": null,
+                                    "fire-ice": null
+                                }
+                            }
+                        },
+                        {
+                            "name": "Sadira II",
+                            "type": "gas-giant",
+                            "wind": null,
+                            "sun": 0.94,
+                            "singularity": "multiple-satellites",
+                            "ocean": null,
+                            "resources": {
+                                "solid": {
+                                    "iron": null,
+                                    "copper": null,
+                                    "silicon": null,
+                                    "titanium": null,
+                                    "stone": null,
+                                    "coal": null,
+                                    "fire-ice": null,
+                                    "kimberlite": null,
+                                    "fractal-silicone": null,
+                                    "organic-crystal": null,
+                                    "optical-grating-crystal": null,
+                                    "spiniform-stalagnite": null,
+                                    "unipolar-magnet": null
+                                },
+                                "fluid": {
+                                    "crude-oil": null
+                                },
+                                "gas": {
+                                    "hydrogen": 0.809,
+                                    "deuterium": 0.038,
+                                    "fire-ice": null
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "name": "DSR J1657-19",
+                    "isHome": false,
+                    "luminosity": 0.98,
+                    "type": "black-hole",
+                    "position": [
+                        -35.29754,
+                        -1.31002,
+                        48.93415
+                    ],
+                    "distance": 32.1,
+                    "planets": [
+                        {
+                            "name": "DSR J1657-19 I",
+                            "type": "ice-field-gelisol",
+                            "wind": 0.7,
+                            "sun": 0.89,
+                            "singularity": null,
+                            "ocean": "water",
+                            "resources": {
+                                "solid": {
+                                    "iron": 67419025,
+                                    "copper": 2015789,
+                                    "silicon": 55222455,
+                                    "titanium": 183539814,
+                                    "stone": 29141249,
+                                    "fire-ice": null,
+                                    "kimberlite": null,
+                                    "fractal-silicone": null,
+                                    "organic-crystal": null,
+                                    "optical-grating-crystal": null,
+                                    "spiniform-stalagnite": null,
+                                    "unipolar-magnet": null
+                                },
+                                "fluid": {
+                                    "crude-oil": null
+                                },
+                                "gas": {
+                                    "hydrogen": null,
+                                    "deuterium": null,
+                                    "fire-ice": null
+                                }
+                            }
+                        },
+                        {
+                            "name": "Sadira II",
+                            "type": "gas-giant",
+                            "wind": null,
+                            "sun": 0.94,
+                            "singularity": "multiple-satellites",
+                            "ocean": null,
+                            "resources": {
+                                "solid": {
+                                    "iron": null,
+                                    "copper": null,
+                                    "silicon": null,
+                                    "titanium": null,
+                                    "stone": null,
+                                    "coal": 964983,
+                                    "fire-ice": 135754919,
+                                    "kimberlite": null,
+                                    "fractal-silicone": 78720385,
+                                    "organic-crystal": null,
+                                    "optical-grating-crystal": null,
+                                    "spiniform-stalagnite": null,
+                                    "unipolar-magnet": 3743030
+                                },
+                                "fluid": {
+                                    "crude-oil": null
+                                },
+                                "gas": {
+                                    "hydrogen": null,
+                                    "deuterium": null,
+                                    "fire-ice": null
+                                }
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "required": [
+        "title",
+        "author",
+        "tags",
+        "note",
+        "version",
+        "seed",
+        "resource-multiplier",
+        "starcount",
+        "mods",
+        "stars"
+    ],
+    "properties": {
+        "title": {
+            "$id": "#/properties/title",
+            "type": "string",
+            "title": "The title schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "retirement"
+            ]
+        },
+        "author": {
+            "$id": "#/properties/author",
+            "type": "string",
+            "title": "The author schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "dnightmare"
+            ]
+        },
+        "tags": {
+            "$id": "#/properties/tags",
+            "type": "array",
+            "title": "The tags schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": [],
+            "examples": [
+                [
+                    "make-all",
+                    "endgame"
+                ]
+            ],
+            "additionalItems": true,
+            "items": {
+                "$id": "#/properties/tags/items",
+                "anyOf": [
+                    {
+                        "$id": "#/properties/tags/items/anyOf/0",
+                        "type": "string",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": "",
+                        "examples": [
+                            "make-all",
+                            "endgame"
+                        ]
+                    }
+                ]
+            }
+        },
+        "note": {
+            "$id": "#/properties/note",
+            "type": "string",
+            "title": "The note schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "my new retirement home"
+            ]
+        },
+        "version": {
+            "$id": "#/properties/version",
+            "type": "string",
+            "title": "The version schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "0.6.17.5831"
+            ]
+        },
+        "seed": {
+            "$id": "#/properties/seed",
+            "type": "string",
+            "title": "The seed schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "83538768"
+            ]
+        },
+        "resource-multiplier": {
+            "$id": "#/properties/resource-multiplier",
+            "type": "integer",
+            "title": "The resource-multiplier schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": 0,
+            "examples": [
+                1
+            ]
+        },
+        "starcount": {
+            "$id": "#/properties/starcount",
+            "type": "integer",
+            "title": "The starcount schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": 0,
+            "examples": [
+                64
+            ]
+        },
+        "mods": {
+            "$id": "#/properties/mods",
+            "type": "array",
+            "title": "The mods schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": [],
+            "examples": [
+                [
+                    "ctcDNightmare-NoPrologue-1.0.0",
+                    "thisisbrad-CopyInserters-1.6.0"
+                ]
+            ],
+            "additionalItems": true,
+            "items": {
+                "$id": "#/properties/mods/items",
+                "anyOf": [
+                    {
+                        "$id": "#/properties/mods/items/anyOf/0",
+                        "type": "string",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": "",
+                        "examples": [
+                            "ctcDNightmare-NoPrologue-1.0.0",
+                            "thisisbrad-CopyInserters-1.6.0"
+                        ]
+                    }
+                ]
+            }
+        },
+        "stars": {
+            "$id": "#/properties/stars",
+            "type": "array",
+            "title": "The stars schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": [],
+            "examples": [
+                [
+                    {
+                        "id": 1,
+                        "name": "Sadira",
+                        "isHome": true,
+                        "luminosity": 0.986,
+                        "type": "g",
+                        "position": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "distance": 0,
+                        "planets": [
+                            {
+                                "name": "Sadira I",
+                                "type": "arid-desert",
+                                "wind": 1.5,
+                                "sun": 1.33,
+                                "singularity": null,
+                                "ocean": null,
+                                "resources": {
+                                    "solid": {
+                                        "iron": 1461886,
+                                        "copper": 9494098,
+                                        "silicon": null,
+                                        "titanium": 8372692,
+                                        "stone": 14459879,
+                                        "coal": 124066,
+                                        "fire-ice": null,
+                                        "kimberlite": null,
+                                        "fractal-silicone": null,
+                                        "organic-crystal": null,
+                                        "optical-grating-crystal": null,
+                                        "spiniform-stalagnite": null,
+                                        "unipolar-magnet": null
+                                    },
+                                    "fluid": {
+                                        "crude-oil": null
+                                    },
+                                    "gas": {
+                                        "hydrogen": null,
+                                        "deuterium": null,
+                                        "fire-ice": null
+                                    }
+                                }
+                            },
+                            {
+                                "name": "Sadira II",
+                                "type": "gas-giant",
+                                "wind": null,
+                                "sun": 0.94,
+                                "singularity": "multiple-satellites",
+                                "ocean": null,
+                                "resources": {
+                                    "solid": {
+                                        "iron": null,
+                                        "copper": null,
+                                        "silicon": null,
+                                        "titanium": null,
+                                        "stone": null,
+                                        "coal": null,
+                                        "fire-ice": null,
+                                        "kimberlite": null,
+                                        "fractal-silicone": null,
+                                        "organic-crystal": null,
+                                        "optical-grating-crystal": null,
+                                        "spiniform-stalagnite": null,
+                                        "unipolar-magnet": null
+                                    },
+                                    "fluid": {
+                                        "crude-oil": null
+                                    },
+                                    "gas": {
+                                        "hydrogen": 0.809,
+                                        "deuterium": 0.038,
+                                        "fire-ice": null
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "id": 2,
+                        "name": "DSR J1657-19",
+                        "isHome": false,
+                        "luminosity": 0.98,
+                        "type": "black-hole",
+                        "position": [
+                            -35.29754,
+                            -1.31002,
+                            48.93415
+                        ],
+                        "distance": 32.1,
+                        "planets": [
+                            {
+                                "name": "DSR J1657-19 I",
+                                "type": "ice-field-gelisol",
+                                "wind": 0.7,
+                                "sun": 0.89,
+                                "singularity": null,
+                                "ocean": "water",
+                                "resources": {
+                                    "solid": {
+                                        "iron": 67419025,
+                                        "copper": 2015789,
+                                        "silicon": 55222455,
+                                        "titanium": 183539814,
+                                        "stone": 29141249,
+                                        "fire-ice": null,
+                                        "kimberlite": null,
+                                        "fractal-silicone": null,
+                                        "organic-crystal": null,
+                                        "optical-grating-crystal": null,
+                                        "spiniform-stalagnite": null,
+                                        "unipolar-magnet": null
+                                    },
+                                    "fluid": {
+                                        "crude-oil": null
+                                    },
+                                    "gas": {
+                                        "hydrogen": null,
+                                        "deuterium": null,
+                                        "fire-ice": null
+                                    }
+                                }
+                            },
+                            {
+                                "name": "Sadira II",
+                                "type": "gas-giant",
+                                "wind": null,
+                                "sun": 0.94,
+                                "singularity": "multiple-satellites",
+                                "ocean": null,
+                                "resources": {
+                                    "solid": {
+                                        "iron": null,
+                                        "copper": null,
+                                        "silicon": null,
+                                        "titanium": null,
+                                        "stone": null,
+                                        "coal": 964983,
+                                        "fire-ice": 135754919,
+                                        "kimberlite": null,
+                                        "fractal-silicone": 78720385,
+                                        "organic-crystal": null,
+                                        "optical-grating-crystal": null,
+                                        "spiniform-stalagnite": null,
+                                        "unipolar-magnet": 3743030
+                                    },
+                                    "fluid": {
+                                        "crude-oil": null
+                                    },
+                                    "gas": {
+                                        "hydrogen": null,
+                                        "deuterium": null,
+                                        "fire-ice": null
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            ],
+            "additionalItems": true,
+            "items": {
+                "$id": "#/properties/stars/items",
+                "anyOf": [
+                    {
+                        "$id": "#/properties/stars/items/anyOf/0",
+                        "type": "object",
+                        "title": "The first anyOf schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": {},
+                        "examples": [
+                            {
+                                "id": 1,
+                                "name": "Sadira",
+                                "isHome": true,
+                                "luminosity": 0.986,
+                                "type": "g",
+                                "position": [
+                                    0,
+                                    0,
+                                    0
+                                ],
+                                "distance": 0,
+                                "planets": [
+                                    {
+                                        "name": "Sadira I",
+                                        "type": "arid-desert",
+                                        "wind": 1.5,
+                                        "sun": 1.33,
+                                        "singularity": null,
+                                        "ocean": null,
+                                        "resources": {
+                                            "solid": {
+                                                "iron": 1461886,
+                                                "copper": 9494098,
+                                                "silicon": null,
+                                                "titanium": 8372692,
+                                                "stone": 14459879,
+                                                "coal": 124066,
+                                                "fire-ice": null,
+                                                "kimberlite": null,
+                                                "fractal-silicone": null,
+                                                "organic-crystal": null,
+                                                "optical-grating-crystal": null,
+                                                "spiniform-stalagnite": null,
+                                                "unipolar-magnet": null
+                                            },
+                                            "fluid": {
+                                                "crude-oil": null
+                                            },
+                                            "gas": {
+                                                "hydrogen": null,
+                                                "deuterium": null,
+                                                "fire-ice": null
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "name": "Sadira II",
+                                        "type": "gas-giant",
+                                        "wind": null,
+                                        "sun": 0.94,
+                                        "singularity": "multiple-satellites",
+                                        "ocean": null,
+                                        "resources": {
+                                            "solid": {
+                                                "iron": null,
+                                                "copper": null,
+                                                "silicon": null,
+                                                "titanium": null,
+                                                "stone": null,
+                                                "coal": null,
+                                                "fire-ice": null,
+                                                "kimberlite": null,
+                                                "fractal-silicone": null,
+                                                "organic-crystal": null,
+                                                "optical-grating-crystal": null,
+                                                "spiniform-stalagnite": null,
+                                                "unipolar-magnet": null
+                                            },
+                                            "fluid": {
+                                                "crude-oil": null
+                                            },
+                                            "gas": {
+                                                "hydrogen": 0.809,
+                                                "deuterium": 0.038,
+                                                "fire-ice": null
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        ],
+                        "required": [
+                            "id",
+                            "name",
+                            "isHome",
+                            "luminosity",
+                            "type",
+                            "position",
+                            "distance",
+                            "planets"
+                        ],
+                        "properties": {
+                            "id": {
+                                "$id": "#/properties/stars/items/anyOf/0/properties/id",
+                                "type": "integer",
+                                "title": "The id schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": 0,
+                                "examples": [
+                                    1
+                                ]
+                            },
+                            "name": {
+                                "$id": "#/properties/stars/items/anyOf/0/properties/name",
+                                "type": "string",
+                                "title": "The name schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "Sadira"
+                                ]
+                            },
+                            "isHome": {
+                                "$id": "#/properties/stars/items/anyOf/0/properties/isHome",
+                                "type": "boolean",
+                                "title": "The isHome schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": false,
+                                "examples": [
+                                    true
+                                ]
+                            },
+                            "luminosity": {
+                                "$id": "#/properties/stars/items/anyOf/0/properties/luminosity",
+                                "type": "number",
+                                "title": "The luminosity schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": 0.0,
+                                "examples": [
+                                    0.986
+                                ]
+                            },
+                            "type": {
+                                "$id": "#/properties/stars/items/anyOf/0/properties/type",
+                                "type": "string",
+                                "title": "The type schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": "",
+                                "examples": [
+                                    "g"
+                                ]
+                            },
+                            "position": {
+                                "$id": "#/properties/stars/items/anyOf/0/properties/position",
+                                "type": "array",
+                                "title": "The position schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": [],
+                                "examples": [
+                                    [
+                                        0,
+                                        0
+                                    ]
+                                ],
+                                "additionalItems": true,
+                                "items": {
+                                    "$id": "#/properties/stars/items/anyOf/0/properties/position/items",
+                                    "anyOf": [
+                                        {
+                                            "$id": "#/properties/stars/items/anyOf/0/properties/position/items/anyOf/0",
+                                            "type": "integer",
+                                            "title": "The first anyOf schema",
+                                            "description": "An explanation about the purpose of this instance.",
+                                            "default": 0,
+                                            "examples": [
+                                                0
+                                            ]
+                                        }
+                                    ]
+                                }
+                            },
+                            "distance": {
+                                "$id": "#/properties/stars/items/anyOf/0/properties/distance",
+                                "type": "integer",
+                                "title": "The distance schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": 0,
+                                "examples": [
+                                    0
+                                ]
+                            },
+                            "planets": {
+                                "$id": "#/properties/stars/items/anyOf/0/properties/planets",
+                                "type": "array",
+                                "title": "The planets schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": [],
+                                "examples": [
+                                    [
+                                        {
+                                            "name": "Sadira I",
+                                            "type": "arid-desert",
+                                            "wind": 1.5,
+                                            "sun": 1.33,
+                                            "singularity": null,
+                                            "ocean": null,
+                                            "resources": {
+                                                "solid": {
+                                                    "iron": 1461886,
+                                                    "copper": 9494098,
+                                                    "silicon": null,
+                                                    "titanium": 8372692,
+                                                    "stone": 14459879,
+                                                    "coal": 124066,
+                                                    "fire-ice": null,
+                                                    "kimberlite": null,
+                                                    "fractal-silicone": null,
+                                                    "organic-crystal": null,
+                                                    "optical-grating-crystal": null,
+                                                    "spiniform-stalagnite": null,
+                                                    "unipolar-magnet": null
+                                                },
+                                                "fluid": {
+                                                    "crude-oil": null
+                                                },
+                                                "gas": {
+                                                    "hydrogen": null,
+                                                    "deuterium": null,
+                                                    "fire-ice": null
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "name": "Sadira II",
+                                            "type": "gas-giant",
+                                            "wind": null,
+                                            "sun": 0.94,
+                                            "singularity": "multiple-satellites",
+                                            "ocean": null,
+                                            "resources": {
+                                                "solid": {
+                                                    "iron": null,
+                                                    "copper": null,
+                                                    "silicon": null,
+                                                    "titanium": null,
+                                                    "stone": null,
+                                                    "coal": null,
+                                                    "fire-ice": null,
+                                                    "kimberlite": null,
+                                                    "fractal-silicone": null,
+                                                    "organic-crystal": null,
+                                                    "optical-grating-crystal": null,
+                                                    "spiniform-stalagnite": null,
+                                                    "unipolar-magnet": null
+                                                },
+                                                "fluid": {
+                                                    "crude-oil": null
+                                                },
+                                                "gas": {
+                                                    "hydrogen": 0.809,
+                                                    "deuterium": 0.038,
+                                                    "fire-ice": null
+                                                }
+                                            }
+                                        }
+                                    ]
+                                ],
+                                "additionalItems": true,
+                                "items": {
+                                    "$id": "#/properties/stars/items/anyOf/0/properties/planets/items",
+                                    "anyOf": [
+                                        {
+                                            "$id": "#/properties/stars/items/anyOf/0/properties/planets/items/anyOf/0",
+                                            "type": "object",
+                                            "title": "The first anyOf schema",
+                                            "description": "An explanation about the purpose of this instance.",
+                                            "default": {},
+                                            "examples": [
+                                                {
+                                                    "name": "Sadira I",
+                                                    "type": "arid-desert",
+                                                    "wind": 1.5,
+                                                    "sun": 1.33,
+                                                    "singularity": null,
+                                                    "ocean": null,
+                                                    "resources": {
+                                                        "solid": {
+                                                            "iron": 1461886,
+                                                            "copper": 9494098,
+                                                            "silicon": null,
+                                                            "titanium": 8372692,
+                                                            "stone": 14459879,
+                                                            "coal": 124066,
+                                                            "fire-ice": null,
+                                                            "kimberlite": null,
+                                                            "fractal-silicone": null,
+                                                            "organic-crystal": null,
+                                                            "optical-grating-crystal": null,
+                                                            "spiniform-stalagnite": null,
+                                                            "unipolar-magnet": null
+                                                        },
+                                                        "fluid": {
+                                                            "crude-oil": null
+                                                        },
+                                                        "gas": {
+                                                            "hydrogen": null,
+                                                            "deuterium": null,
+                                                            "fire-ice": null
+                                                        }
+                                                    }
+                                                }
+                                            ],
+                                            "required": [
+                                                "name",
+                                                "type",
+                                                "wind",
+                                                "sun",
+                                                "singularity",
+                                                "ocean",
+                                                "resources"
+                                            ],
+                                            "properties": {
+                                                "name": {
+                                                    "$id": "#/properties/stars/items/anyOf/0/properties/planets/items/anyOf/0/properties/name",
+                                                    "type": "string",
+                                                    "title": "The name schema",
+                                                    "description": "An explanation about the purpose of this instance.",
+                                                    "default": "",
+                                                    "examples": [
+                                                        "Sadira I"
+                                                    ]
+                                                },
+                                                "type": {
+                                                    "$id": "#/properties/stars/items/anyOf/0/properties/planets/items/anyOf/0/properties/type",
+                                                    "type": "string",
+                                                    "title": "The type schema",
+                                                    "description": "An explanation about the purpose of this instance.",
+                                                    "default": "",
+                                                    "examples": [
+                                                        "arid-desert"
+                                                    ]
+                                                },
+                                                "wind": {
+                                                    "$id": "#/properties/stars/items/anyOf/0/properties/planets/items/anyOf/0/properties/wind",
+                                                    "type": "number",
+                                                    "title": "The wind schema",
+                                                    "description": "An explanation about the purpose of this instance.",
+                                                    "default": 0.0,
+                                                    "examples": [
+                                                        1.5
+                                                    ]
+                                                },
+                                                "sun": {
+                                                    "$id": "#/properties/stars/items/anyOf/0/properties/planets/items/anyOf/0/properties/sun",
+                                                    "type": "number",
+                                                    "title": "The sun schema",
+                                                    "description": "An explanation about the purpose of this instance.",
+                                                    "default": 0.0,
+                                                    "examples": [
+                                                        1.33
+                                                    ]
+                                                },
+                                                "singularity": {
+                                                    "$id": "#/properties/stars/items/anyOf/0/properties/planets/items/anyOf/0/properties/singularity",
+                                                    "type": "null",
+                                                    "title": "The singularity schema",
+                                                    "description": "An explanation about the purpose of this instance.",
+                                                    "default": null,
+                                                    "examples": [
+                                                        null
+                                                    ]
+                                                },
+                                                "ocean": {
+                                                    "$id": "#/properties/stars/items/anyOf/0/properties/planets/items/anyOf/0/properties/ocean",
+                                                    "type": "null",
+                                                    "title": "The ocean schema",
+                                                    "description": "An explanation about the purpose of this instance.",
+                                                    "default": null,
+                                                    "examples": [
+                                                        null
+                                                    ]
+                                                },
+                                                "resources": {
+                                                    "$id": "#/properties/stars/items/anyOf/0/properties/planets/items/anyOf/0/properties/resources",
+                                                    "type": "object",
+                                                    "title": "The resources schema",
+                                                    "description": "An explanation about the purpose of this instance.",
+                                                    "default": {},
+                                                    "examples": [
+                                                        {
+                                                            "solid": {
+                                                                "iron": 1461886,
+                                                                "copper": 9494098,
+                                                                "silicon": null,
+                                                                "titanium": 8372692,
+                                                                "stone": 14459879,
+                                                                "coal": 124066,
+                                                                "fire-ice": null,
+                                                                "kimberlite": null,
+                                                                "fractal-silicone": null,
+                                                                "organic-crystal": null,
+                                                                "optical-grating-crystal": null,
+                                                                "spiniform-stalagnite": null,
+                                                                "unipolar-magnet": null
+                                                            },
+                                                            "fluid": {
+                                                                "crude-oil": null
+                                                            },
+                                                            "gas": {
+                                                                "hydrogen": null,
+                                                                "deuterium": null,
+                                                                "fire-ice": null
+                                                            }
+                                                        }
+                                                    ],
+                                                    "required": [
+                                                        "solid",
+                                                        "fluid",
+                                                        "gas"
+                                                    ],
+                                                    "properties": {
+                                                        "solid": {
+                                                            "$id": "#/properties/stars/items/anyOf/0/properties/planets/items/anyOf/0/properties/resources/properties/solid",
+                                                            "type": "object",
+                                                            "title": "The solid schema",
+                                                            "description": "An explanation about the purpose of this instance.",
+                                                            "default": {},
+                                                            "examples": [
+                                                                {
+                                                                    "iron": 1461886,
+                                                                    "copper": 9494098,
+                                                                    "silicon": null,
+                                                                    "titanium": 8372692,
+                                                                    "stone": 14459879,
+                                                                    "coal": 124066,
+                                                                    "fire-ice": null,
+                                                                    "kimberlite": null,
+                                                                    "fractal-silicone": null,
+                                                                    "organic-crystal": null,
+                                                                    "optical-grating-crystal": null,
+                                                                    "spiniform-stalagnite": null,
+                                                                    "unipolar-magnet": null
+                                                                }
+                                                            ],
+                                                            "required": [
+                                                                "iron",
+                                                                "copper",
+                                                                "silicon",
+                                                                "titanium",
+                                                                "stone",
+                                                                "coal",
+                                                                "fire-ice",
+                                                                "kimberlite",
+                                                                "fractal-silicone",
+                                                                "organic-crystal",
+                                                                "optical-grating-crystal",
+                                                                "spiniform-stalagnite",
+                                                                "unipolar-magnet"
+                                                            ],
+                                                            "properties": {
+                                                                "iron": {
+                                                                    "$id": "#/properties/stars/items/anyOf/0/properties/planets/items/anyOf/0/properties/resources/properties/solid/properties/iron",
+                                                                    "type": "integer",
+                                                                    "title": "The iron schema",
+                                                                    "description": "An explanation about the purpose of this instance.",
+                                                                    "default": 0,
+                                                                    "examples": [
+                                                                        1461886
+                                                                    ]
+                                                                },
+                                                                "copper": {
+                                                                    "$id": "#/properties/stars/items/anyOf/0/properties/planets/items/anyOf/0/properties/resources/properties/solid/properties/copper",
+                                                                    "type": "integer",
+                                                                    "title": "The copper schema",
+                                                                    "description": "An explanation about the purpose of this instance.",
+                                                                    "default": 0,
+                                                                    "examples": [
+                                                                        9494098
+                                                                    ]
+                                                                },
+                                                                "silicon": {
+                                                                    "$id": "#/properties/stars/items/anyOf/0/properties/planets/items/anyOf/0/properties/resources/properties/solid/properties/silicon",
+                                                                    "type": "null",
+                                                                    "title": "The silicon schema",
+                                                                    "description": "An explanation about the purpose of this instance.",
+                                                                    "default": null,
+                                                                    "examples": [
+                                                                        null
+                                                                    ]
+                                                                },
+                                                                "titanium": {
+                                                                    "$id": "#/properties/stars/items/anyOf/0/properties/planets/items/anyOf/0/properties/resources/properties/solid/properties/titanium",
+                                                                    "type": "integer",
+                                                                    "title": "The titanium schema",
+                                                                    "description": "An explanation about the purpose of this instance.",
+                                                                    "default": 0,
+                                                                    "examples": [
+                                                                        8372692
+                                                                    ]
+                                                                },
+                                                                "stone": {
+                                                                    "$id": "#/properties/stars/items/anyOf/0/properties/planets/items/anyOf/0/properties/resources/properties/solid/properties/stone",
+                                                                    "type": "integer",
+                                                                    "title": "The stone schema",
+                                                                    "description": "An explanation about the purpose of this instance.",
+                                                                    "default": 0,
+                                                                    "examples": [
+                                                                        14459879
+                                                                    ]
+                                                                },
+                                                                "coal": {
+                                                                    "$id": "#/properties/stars/items/anyOf/0/properties/planets/items/anyOf/0/properties/resources/properties/solid/properties/coal",
+                                                                    "type": "integer",
+                                                                    "title": "The coal schema",
+                                                                    "description": "An explanation about the purpose of this instance.",
+                                                                    "default": 0,
+                                                                    "examples": [
+                                                                        124066
+                                                                    ]
+                                                                },
+                                                                "fire-ice": {
+                                                                    "$id": "#/properties/stars/items/anyOf/0/properties/planets/items/anyOf/0/properties/resources/properties/solid/properties/fire-ice",
+                                                                    "type": "null",
+                                                                    "title": "The fire-ice schema",
+                                                                    "description": "An explanation about the purpose of this instance.",
+                                                                    "default": null,
+                                                                    "examples": [
+                                                                        null
+                                                                    ]
+                                                                },
+                                                                "kimberlite": {
+                                                                    "$id": "#/properties/stars/items/anyOf/0/properties/planets/items/anyOf/0/properties/resources/properties/solid/properties/kimberlite",
+                                                                    "type": "null",
+                                                                    "title": "The kimberlite schema",
+                                                                    "description": "An explanation about the purpose of this instance.",
+                                                                    "default": null,
+                                                                    "examples": [
+                                                                        null
+                                                                    ]
+                                                                },
+                                                                "fractal-silicone": {
+                                                                    "$id": "#/properties/stars/items/anyOf/0/properties/planets/items/anyOf/0/properties/resources/properties/solid/properties/fractal-silicone",
+                                                                    "type": "null",
+                                                                    "title": "The fractal-silicone schema",
+                                                                    "description": "An explanation about the purpose of this instance.",
+                                                                    "default": null,
+                                                                    "examples": [
+                                                                        null
+                                                                    ]
+                                                                },
+                                                                "organic-crystal": {
+                                                                    "$id": "#/properties/stars/items/anyOf/0/properties/planets/items/anyOf/0/properties/resources/properties/solid/properties/organic-crystal",
+                                                                    "type": "null",
+                                                                    "title": "The organic-crystal schema",
+                                                                    "description": "An explanation about the purpose of this instance.",
+                                                                    "default": null,
+                                                                    "examples": [
+                                                                        null
+                                                                    ]
+                                                                },
+                                                                "optical-grating-crystal": {
+                                                                    "$id": "#/properties/stars/items/anyOf/0/properties/planets/items/anyOf/0/properties/resources/properties/solid/properties/optical-grating-crystal",
+                                                                    "type": "null",
+                                                                    "title": "The optical-grating-crystal schema",
+                                                                    "description": "An explanation about the purpose of this instance.",
+                                                                    "default": null,
+                                                                    "examples": [
+                                                                        null
+                                                                    ]
+                                                                },
+                                                                "spiniform-stalagnite": {
+                                                                    "$id": "#/properties/stars/items/anyOf/0/properties/planets/items/anyOf/0/properties/resources/properties/solid/properties/spiniform-stalagnite",
+                                                                    "type": "null",
+                                                                    "title": "The spiniform-stalagnite schema",
+                                                                    "description": "An explanation about the purpose of this instance.",
+                                                                    "default": null,
+                                                                    "examples": [
+                                                                        null
+                                                                    ]
+                                                                },
+                                                                "unipolar-magnet": {
+                                                                    "$id": "#/properties/stars/items/anyOf/0/properties/planets/items/anyOf/0/properties/resources/properties/solid/properties/unipolar-magnet",
+                                                                    "type": "null",
+                                                                    "title": "The unipolar-magnet schema",
+                                                                    "description": "An explanation about the purpose of this instance.",
+                                                                    "default": null,
+                                                                    "examples": [
+                                                                        null
+                                                                    ]
+                                                                }
+                                                            },
+                                                            "additionalProperties": true
+                                                        },
+                                                        "fluid": {
+                                                            "$id": "#/properties/stars/items/anyOf/0/properties/planets/items/anyOf/0/properties/resources/properties/fluid",
+                                                            "type": "object",
+                                                            "title": "The fluid schema",
+                                                            "description": "An explanation about the purpose of this instance.",
+                                                            "default": {},
+                                                            "examples": [
+                                                                {
+                                                                    "crude-oil": null
+                                                                }
+                                                            ],
+                                                            "required": [
+                                                                "crude-oil"
+                                                            ],
+                                                            "properties": {
+                                                                "crude-oil": {
+                                                                    "$id": "#/properties/stars/items/anyOf/0/properties/planets/items/anyOf/0/properties/resources/properties/fluid/properties/crude-oil",
+                                                                    "type": "null",
+                                                                    "title": "The crude-oil schema",
+                                                                    "description": "An explanation about the purpose of this instance.",
+                                                                    "default": null,
+                                                                    "examples": [
+                                                                        null
+                                                                    ]
+                                                                }
+                                                            },
+                                                            "additionalProperties": true
+                                                        },
+                                                        "gas": {
+                                                            "$id": "#/properties/stars/items/anyOf/0/properties/planets/items/anyOf/0/properties/resources/properties/gas",
+                                                            "type": "object",
+                                                            "title": "The gas schema",
+                                                            "description": "An explanation about the purpose of this instance.",
+                                                            "default": {},
+                                                            "examples": [
+                                                                {
+                                                                    "hydrogen": null,
+                                                                    "deuterium": null,
+                                                                    "fire-ice": null
+                                                                }
+                                                            ],
+                                                            "required": [
+                                                                "hydrogen",
+                                                                "deuterium",
+                                                                "fire-ice"
+                                                            ],
+                                                            "properties": {
+                                                                "hydrogen": {
+                                                                    "$id": "#/properties/stars/items/anyOf/0/properties/planets/items/anyOf/0/properties/resources/properties/gas/properties/hydrogen",
+                                                                    "type": "null",
+                                                                    "title": "The hydrogen schema",
+                                                                    "description": "An explanation about the purpose of this instance.",
+                                                                    "default": null,
+                                                                    "examples": [
+                                                                        null
+                                                                    ]
+                                                                },
+                                                                "deuterium": {
+                                                                    "$id": "#/properties/stars/items/anyOf/0/properties/planets/items/anyOf/0/properties/resources/properties/gas/properties/deuterium",
+                                                                    "type": "null",
+                                                                    "title": "The deuterium schema",
+                                                                    "description": "An explanation about the purpose of this instance.",
+                                                                    "default": null,
+                                                                    "examples": [
+                                                                        null
+                                                                    ]
+                                                                },
+                                                                "fire-ice": {
+                                                                    "$id": "#/properties/stars/items/anyOf/0/properties/planets/items/anyOf/0/properties/resources/properties/gas/properties/fire-ice",
+                                                                    "type": "null",
+                                                                    "title": "The fire-ice schema",
+                                                                    "description": "An explanation about the purpose of this instance.",
+                                                                    "default": null,
+                                                                    "examples": [
+                                                                        null
+                                                                    ]
+                                                                }
+                                                            },
+                                                            "additionalProperties": true
+                                                        }
+                                                    },
+                                                    "additionalProperties": true
+                                                }
+                                            },
+                                            "additionalProperties": true
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        "additionalProperties": true
+                    }
+                ]
+            }
+        }
+    },
+    "additionalProperties": true
+}

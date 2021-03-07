@@ -1,0 +1,180 @@
+{
+  "title": "retirement",
+  "author": "dnightmare",
+  "tags": [
+    "make-all",
+    "endgame"
+  ],
+  "note": "my new retirement home",
+  "version": "0.6.17.5831",
+  "seed": "83538768",
+  "resource-multiplier": 1,
+  "starcount": 64,
+  "mods": [
+    "ctcDNightmare-NoPrologue-1.0.0",
+    "thisisbrad-CopyInserters-1.6.0"
+  ],
+  "stars": [
+    {
+      "id": 1,
+      "name": "Sadira",
+      "isHome": true,
+      "luminosity": 0.986,
+      "type": "g",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "distance": 0,
+      "planets": [
+        {
+          "name": "Sadira I",
+          "type": "arid-desert",
+          "wind": 1.5,
+          "sun": 1.33,
+          "singularity": null,
+          "ocean": null,
+          "resources": {
+            "solid": {
+              "iron": 1461886,
+              "copper": 9494098,
+              "silicon": null,
+              "titanium": 8372692,
+              "stone": 14459879,
+              "coal": 124066,
+              "fire-ice": null,
+              "kimberlite": null,
+              "fractal-silicone": null,
+              "organic-crystal": null,
+              "optical-grating-crystal": null,
+              "spiniform-stalagnite": null,
+              "unipolar-magnet": null
+            },
+            "fluid": {
+              "crude-oil": null
+            },
+            "gas": {
+              "hydrogen": null,
+              "deuterium": null,
+              "fire-ice": null
+            }
+          }
+        },
+        {
+          "name": "Sadira II",
+          "type": "gas-giant",
+          "wind": null,
+          "sun": 0.94,
+          "singularity": "multiple-satellites",
+          "ocean": null,
+          "resources": {
+            "solid": {
+              "iron": null,
+              "copper": null,
+              "silicon": null,
+              "titanium": null,
+              "stone": null,
+              "coal": null,
+              "fire-ice": null,
+              "kimberlite": null,
+              "fractal-silicone": null,
+              "organic-crystal": null,
+              "optical-grating-crystal": null,
+              "spiniform-stalagnite": null,
+              "unipolar-magnet": null
+            },
+            "fluid": {
+              "crude-oil": null
+            },
+            "gas": {
+              "hydrogen": 0.809,
+              "deuterium": 0.038,
+              "fire-ice": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "DSR J1657-19",
+      "isHome": false,
+      "luminosity": 0.98,
+      "type": "black-hole",
+      "position": [
+        -35.29754,
+        -1.31002,
+        48.93415
+      ],
+      "distance": 32.1,
+      "planets": [
+        {
+          "name": "DSR J1657-19 I",
+          "type": "ice-field-gelisol",
+          "wind": 0.7,
+          "sun": 0.89,
+          "singularity": null,
+          "ocean": "water",
+          "resources": {
+            "solid": {
+              "iron": 67419025,
+              "copper": 2015789,
+              "silicon": 55222455,
+              "titanium": 183539814,
+              "stone": 29141249,
+              "fire-ice": null,
+              "kimberlite": null,
+              "fractal-silicone": null,
+              "organic-crystal": null,
+              "optical-grating-crystal": null,
+              "spiniform-stalagnite": null,
+              "unipolar-magnet": null
+            },
+            "fluid": {
+              "crude-oil": null
+            },
+            "gas": {
+              "hydrogen": null,
+              "deuterium": null,
+              "fire-ice": null
+            }
+          }
+        },
+        {
+          "name": "Sadira II",
+          "type": "gas-giant",
+          "wind": null,
+          "sun": 0.94,
+          "singularity": "multiple-satellites",
+          "ocean": null,
+          "resources": {
+            "solid": {
+              "iron": null,
+              "copper": null,
+              "silicon": null,
+              "titanium": null,
+              "stone": null,
+              "coal": 964983,
+              "fire-ice": 135754919,
+              "kimberlite": null,
+              "fractal-silicone": 78720385,
+              "organic-crystal": null,
+              "optical-grating-crystal": null,
+              "spiniform-stalagnite": null,
+              "unipolar-magnet": 3743030
+            },
+            "fluid": {
+              "crude-oil": null
+            },
+            "gas": {
+              "hydrogen": null,
+              "deuterium": null,
+              "fire-ice": null
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
