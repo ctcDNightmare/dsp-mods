@@ -12,8 +12,8 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
-using FullSerializer;
 using System.Security.Policy;
+using System.IO;
 
 [module: UnverifiableCode]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
@@ -30,7 +30,9 @@ namespace SeedFinder
 
         // config
         protected static bool cfgEnabled = true;
+        protected static string cfgOutputPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + Path.DirectorySeparatorChar + pluginName + Path.DirectorySeparatorChar;
         protected static Boolean cfgKeepSearching = false;
+        protected static int cfgLoadResources = 0;
         protected static bool cfgUnipolarEnabled = true;
         protected static int cfgUnipolarMinDistance = 30;
         protected static int cfgUnipolarMinAmount = 1;
@@ -59,7 +61,9 @@ namespace SeedFinder
         {
             // general
             cfgEnabled = Config.Bind<bool>("General", "enablePlugin", cfgEnabled, "Main toggle to enable/disable this plugin").Value;
+            cfgOutputPath = Config.Bind<string>("General", "Outputfolder", cfgOutputPath, "Path to the output spreadsheet.").Value;
             cfgKeepSearching = Config.Bind<bool>("General", "keepSearching", cfgKeepSearching, "After finding a good seed, export result and continue?").Value;
+            cfgLoadResources = Config.Bind<int>("General", "loadResources", cfgLoadResources, "Should resourcedata get loaded for a new result? (0 = no resources, 1 = only unipolar sources + o-type stars, 2 = all)").Value;
 
             // neutron star / block holes
             cfgUnipolarEnabled = Config.Bind<bool>("Unipolar", "enableSearch", cfgUnipolarEnabled, "Search for specific black holes / neutron stars").Value;
@@ -108,23 +112,7 @@ namespace SeedFinder
                     StopSearch();
                 }
                 Logger.LogInfo(Environment.NewLine + "--- Found something ---" + Environment.NewLine);
-                map = new DSPMap();
-                if (GameMain.data != null && !string.IsNullOrEmpty(GameMain.data.account.detail.userName))
-                {
-                    map.author = GameMain.data.account.detail.userName;
-                }
-                GameDesc newGameDesc = (GameDesc)typeof(UIGalaxySelect).GetField("gameDesc", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(uiGalaxySelect);
-                map.title = newGameDesc.clusterString;
-                map.seed = newGameDesc.galaxySeed.ToString("00000000");
-                map.resourceMultiplier = newGameDesc.resourceMultiplier;
-                map.version = GameConfig.gameVersion.ToFullString();
-                map.starcount = galaxy.starCount;
-                map.mods = modList;
-
-                //Logger.LogInfo(JsonSerializer.Serialize(typeof(DSPMap), map));
-                Logger.LogInfo(map.ToJson());
-                
-                /**Logger.LogInfo("Cluster " + map.title);
+                Logger.LogInfo("Seed " + galaxy.seed);
                 foreach (StarData star in unipolarSources)
                 {
                     Logger.LogInfo(star.name + " (" + star.typeString + ") @ " + DistanceFromStart(star).ToString("F3") + "AU");
@@ -132,25 +120,40 @@ namespace SeedFinder
                 foreach (StarData star in oTypeStars)
                 {
                     Logger.LogInfo(star.name + " (" + star.dysonLumino + ") @ " + DistanceFromStart(star).ToString("F3") + "AU" + Environment.NewLine);
-                }**/
+                }
+                ExportMap(galaxy);
                 return;
 
             }
             uiGalaxySelect.Rerand();
         }
 
-        [HarmonyPostfix]
-        [HarmonyPatch(typeof(UIGalaxySelect), "Rerand")]
-        protected static void RerandPostfix(GameDesc ___gameDesc)
+        protected void ExportMap(GalaxyData galaxy)
         {
-            //Logger.LogInfo(___gameDesc.clusterString);
+            map = new DSPMap();
+            if (GameMain.data != null && !string.IsNullOrEmpty(GameMain.data.account.detail.userName))
+            {
+                map.author = GameMain.data.account.detail.userName;
+            }
+            GameDesc newGameDesc = (GameDesc)typeof(UIGalaxySelect).GetField("gameDesc", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(uiGalaxySelect);
+            map.title = newGameDesc.clusterString;
+            map.seed = newGameDesc.galaxySeed.ToString("00000000");
+            map.resourceMultiplier = newGameDesc.resourceMultiplier;
+            map.version = GameConfig.gameVersion.ToFullString();
+            map.starcount = galaxy.starCount;
+            map.mods = modList;
+            map.StarsRaw = galaxy.stars;
+            string outputFileName = cfgOutputPath + Path.DirectorySeparatorChar + newGameDesc.clusterString + ".json";
+            System.IO.FileInfo file = new System.IO.FileInfo(outputFileName);
+            file.Directory.Create();
+
+            File.WriteAllText(outputFileName, map.ToJson());
         }
 
         [HarmonyPostfix]
         [HarmonyPatch(typeof(UIGalaxySelect), "_OnOpen")]
         protected static void OnOpenPostfix(ref UIGalaxySelect __instance)
         {
-            Logger.LogDebug("We need a new button");
             CreateFindButton(__instance);
         }
 
@@ -227,15 +230,14 @@ namespace SeedFinder
 
                 triggerButton.transform.position = newPosition;
                 triggerButton.transform.localScale = newScale;
-                triggerButton.GetComponentInChildren<Text>().text = "Find";
-                triggerButton.GetComponentInChildren<Text>().color = new Color(0.1f, 0.1f, 0.75f);
-                triggerButton.GetComponent<Button>().onClick = new Button.ButtonClickedEvent();
-                triggerButton.GetComponent<Button>().onClick.AddListener(delegate
-                {
-                    ToggleSearch();
-                });
             }
-
+            triggerButton.GetComponentInChildren<Text>().text = "Find";
+            triggerButton.GetComponentInChildren<Text>().color = new Color(0.1f, 0.1f, 0.75f);
+            triggerButton.GetComponent<Button>().onClick = new Button.ButtonClickedEvent();
+            triggerButton.GetComponent<Button>().onClick.AddListener(delegate
+            {
+                ToggleSearch();
+            });
         }
 
         protected static void ToggleSearch()
