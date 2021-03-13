@@ -26,7 +26,7 @@ namespace SeedFinder
         // info
         protected const string pluginGuid = "dsp.dnightmare.seedfinder";
         protected const string pluginName = "SeedFinder";
-        protected const string pluginVersion = "0.1.0";
+        protected const string pluginVersion = "0.2.0";
 
         // config
         protected static bool cfgEnabled = true;
