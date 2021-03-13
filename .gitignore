@@ -1,2 +1,3 @@
 .vs
 Libs/*.dll
+!Libs/FullSerializer.dll

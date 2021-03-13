@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Security;
 using System.Security.Permissions;
@@ -11,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
+using FullSerializer;
 
 [module: UnverifiableCode]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
@@ -47,7 +49,7 @@ namespace SeedFinder
 
         // misc.
         protected static Boolean searchInProgress = false;
-        protected static Seed seed = null;
+        protected static DSPMap map = null;
         
         new internal static BepInEx.Logging.ManualLogSource Logger = BepInEx.Logging.Logger.CreateLogSource(pluginName);
 
@@ -76,10 +78,6 @@ namespace SeedFinder
             }
         }
 
-        private void SeedChanged(object sender, PropertyChangedEventArgs e)
-        {
-            Logger.LogInfo(e.PropertyName + "changed");
-        }
 
         void Update()
         {
@@ -93,6 +91,16 @@ namespace SeedFinder
             }
             galaxy = uiGalaxySelect.starmap.galaxyData;
             startPlanet = galaxy.StarById(galaxy.birthStarId);
+            map = new DSPMap();
+            if (GameMain.data != null && !string.IsNullOrEmpty(GameMain.data.account.detail.userName))
+            {
+                map.author = GameMain.data.account.detail.userName;
+            }
+            GameDesc newGameDesc = (GameDesc)typeof(UIGalaxySelect).GetField("gameDesc", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(uiGalaxySelect);
+            map.title = newGameDesc.clusterString;
+            map.resourceMultiplier = newGameDesc.resourceMultiplier;
+            map.version = GameConfig.gameVersion.ToFullString();
+            Logger.LogInfo(JsonSerializer.Serialize(typeof(DSPMap), map));
             Boolean isGoodSeed = CheckSeed();
             if (isGoodSeed)
             {
@@ -101,7 +109,7 @@ namespace SeedFinder
                     StopSearch();
                 }
                 Logger.LogInfo("--- Found something ---" + Environment.NewLine);
-                Logger.LogInfo("Cluster " + uiGalaxySelect.gameDesc.clusterString);
+                Logger.LogInfo("Cluster " + galaxy.seed);
                 foreach (StarData star in unipolarSources)
                 {
                     Logger.LogInfo(star.name + " (" + star.typeString + ") @ " + DistanceFromStart(star).ToString("F3") + "AU");
@@ -114,6 +122,13 @@ namespace SeedFinder
 
             }
             uiGalaxySelect.Rerand();
+        }
+
+        [HarmonyPostfix]
+        [HarmonyPatch(typeof(UIGalaxySelect), "Rerand")]
+        protected static void RerandPostfix(GameDesc ___gameDesc)
+        {
+            //Logger.LogInfo(___gameDesc.clusterString);
         }
 
         [HarmonyPostfix]
@@ -226,7 +241,7 @@ namespace SeedFinder
             uiGalaxySelect.Rerand();
         }
 
-        protected static void StopSearch(Boolean forceStop = false)
+        protected static void StopSearch()
         {
             searchInProgress = false;
             triggerButton.GetComponentInChildren<Text>().text = "Find";

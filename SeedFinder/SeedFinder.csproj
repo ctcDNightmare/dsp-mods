@@ -40,6 +40,12 @@
     <Reference Include="BepInEx">
       <HintPath>..\Libs\BepInEx.dll</HintPath>
     </Reference>
+    <Reference Include="FullSerializer">
+      <HintPath>..\Libs\FullSerializer.dll</HintPath>
+    </Reference>
+    <Reference Include="LDBTool">
+      <HintPath>..\Libs\LDBTool.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -59,12 +65,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Seed.cs" />
+    <Compile Include="DSPMap.cs" />
+    <Compile Include="JsonSerializer.cs" />
     <Compile Include="SeedFinder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-   <Target Name="PostBuildMacros">
+  <Target Name="PostBuildMacros">
     <GetAssemblyIdentity AssemblyFiles="$(TargetPath)">
       <Output TaskParameter="Assemblies" ItemName="Targets" />
     </GetAssemblyIdentity>
