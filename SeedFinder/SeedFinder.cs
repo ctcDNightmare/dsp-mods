@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 using FullSerializer;
+using System.Security.Policy;
 
 [module: UnverifiableCode]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
@@ -50,6 +51,7 @@ namespace SeedFinder
         // misc.
         protected static Boolean searchInProgress = false;
         protected static DSPMap map = null;
+        protected static List<string> modList = new List<string>();
         
         new internal static BepInEx.Logging.ManualLogSource Logger = BepInEx.Logging.Logger.CreateLogSource(pluginName);
 
@@ -68,7 +70,7 @@ namespace SeedFinder
             cfgOTypeEnabled = Config.Bind<bool>("OType", "enableSearch", cfgOTypeEnabled, "Search for specific O-type stars").Value;
             cfgOTypeMinDistance = Config.Bind<int>("OType", "minDistance", cfgOTypeMinDistance, "Minimum distance from startplanet").Value;
             cfgOTypeMinLuminosity = Config.Bind<float>("OType", "minLuminosity", cfgOTypeMinLuminosity, "Minimum luminosity").Value;
-            
+
             if (cfgEnabled == true)
             {
                 var harmony = new Harmony(pluginGuid);
@@ -77,7 +79,6 @@ namespace SeedFinder
                 Logger.LogInfo("O-Type Search: " + (cfgOTypeEnabled ? "enabled" : "disabled"));
             }
         }
-
 
         void Update()
         {
@@ -89,18 +90,16 @@ namespace SeedFinder
             {
                 return;
             }
+            if (modList.Count == 0)
+            {
+                foreach (KeyValuePair<string, PluginInfo> plugin in BepInEx.Bootstrap.Chainloader.PluginInfos)
+                {
+                    string mod = plugin.Key + "-" + plugin.Value.Metadata.Version;
+                    modList.Add(mod);
+                }
+            }
             galaxy = uiGalaxySelect.starmap.galaxyData;
             startPlanet = galaxy.StarById(galaxy.birthStarId);
-            map = new DSPMap();
-            if (GameMain.data != null && !string.IsNullOrEmpty(GameMain.data.account.detail.userName))
-            {
-                map.author = GameMain.data.account.detail.userName;
-            }
-            GameDesc newGameDesc = (GameDesc)typeof(UIGalaxySelect).GetField("gameDesc", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(uiGalaxySelect);
-            map.title = newGameDesc.clusterString;
-            map.resourceMultiplier = newGameDesc.resourceMultiplier;
-            map.version = GameConfig.gameVersion.ToFullString();
-            Logger.LogInfo(JsonSerializer.Serialize(typeof(DSPMap), map));
             Boolean isGoodSeed = CheckSeed();
             if (isGoodSeed)
             {
@@ -108,8 +107,24 @@ namespace SeedFinder
                 {
                     StopSearch();
                 }
-                Logger.LogInfo("--- Found something ---" + Environment.NewLine);
-                Logger.LogInfo("Cluster " + galaxy.seed);
+                Logger.LogInfo(Environment.NewLine + "--- Found something ---" + Environment.NewLine);
+                map = new DSPMap();
+                if (GameMain.data != null && !string.IsNullOrEmpty(GameMain.data.account.detail.userName))
+                {
+                    map.author = GameMain.data.account.detail.userName;
+                }
+                GameDesc newGameDesc = (GameDesc)typeof(UIGalaxySelect).GetField("gameDesc", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(uiGalaxySelect);
+                map.title = newGameDesc.clusterString;
+                map.seed = newGameDesc.galaxySeed.ToString("00000000");
+                map.resourceMultiplier = newGameDesc.resourceMultiplier;
+                map.version = GameConfig.gameVersion.ToFullString();
+                map.starcount = galaxy.starCount;
+                map.mods = modList;
+
+                //Logger.LogInfo(JsonSerializer.Serialize(typeof(DSPMap), map));
+                Logger.LogInfo(map.ToJson());
+                
+                /**Logger.LogInfo("Cluster " + map.title);
                 foreach (StarData star in unipolarSources)
                 {
                     Logger.LogInfo(star.name + " (" + star.typeString + ") @ " + DistanceFromStart(star).ToString("F3") + "AU");
@@ -117,7 +132,7 @@ namespace SeedFinder
                 foreach (StarData star in oTypeStars)
                 {
                     Logger.LogInfo(star.name + " (" + star.dysonLumino + ") @ " + DistanceFromStart(star).ToString("F3") + "AU" + Environment.NewLine);
-                }
+                }**/
                 return;
 
             }

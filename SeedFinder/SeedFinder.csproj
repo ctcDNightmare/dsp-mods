@@ -40,9 +40,6 @@
     <Reference Include="BepInEx">
       <HintPath>..\Libs\BepInEx.dll</HintPath>
     </Reference>
-    <Reference Include="FullSerializer">
-      <HintPath>..\Libs\FullSerializer.dll</HintPath>
-    </Reference>
     <Reference Include="LDBTool">
       <HintPath>..\Libs\LDBTool.dll</HintPath>
     </Reference>
@@ -66,7 +63,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DSPMap.cs" />
-    <Compile Include="JsonSerializer.cs" />
     <Compile Include="SeedFinder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
